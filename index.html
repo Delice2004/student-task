@@ -242,6 +242,67 @@
       taskInput.value = "";
       dateInput.value = "";
     });
+    // SAVE
+    const saveTasks = () =>
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    // RENDER
+    function renderTasks(){
+
+      taskList.innerHTML = "";
+
+      if(!tasks.length){
+        taskList.innerHTML = `
+          <div class="col-span-full bg-white p-10 rounded-3xl shadow-lg text-center">
+            <div class="text-6xl mb-4">📌</div>
+            <h3 class="text-2xl font-bold mb-2">No Tasks Yet</h3>
+            <p class="text-slate-500">Add your first task to get started.</p>
+          </div>
+        `;
+      }
+
+      tasks.forEach(task => {
+
+        const card = document.createElement("div");
+
+        card.className = `
+          bg-white p-6 rounded-3xl shadow-lg border border-slate-200
+          hover:-translate-y-1 hover:shadow-2xl transition duration-300
+          flex flex-col justify-between
+        `;
+
+        card.innerHTML = `
+          <div>
+            <div class="flex justify-between items-start gap-4 mb-5">
+
+              <div>
+                <h3 class="text-2xl font-bold break-words">${task.name}</h3>
+
+                <p class="text-slate-500 mt-2">
+                  Due:
+                  <span class="text-indigo-600 font-semibold">
+                    ${new Date(task.date).toDateString()}
+                  </span>
+                </p>
+              </div>
+
+              <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-2xl">
+                📝
+              </div>
+
+            </div>
+          </div>
+
+          <button
+            class="deleteBtn bg-red-500 hover:bg-red-600 text-white py-3 rounded-xl font-semibold"
+            data-id="${task.id}"
+          >
+            Delete Task
+          </button>
+        `;
+
+        taskList.appendChild(card);
+      });
 
 
 
