@@ -4,3 +4,45 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TaskFlow | Student Task Tracker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{scroll-behavior:smooth}
+    body{font-family:'Poppins',sans-serif}
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-slate-100 via-indigo-50 to-purple-100 min-h-screen text-slate-800 overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <nav class="bg-indigo-600 sticky top-0 z-50 shadow-xl">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-indigo-600 font-bold">✓</div>
+        <h1 class="text-2xl font-bold text-white">TaskFlow</h1>
+      </div>
+
+      <ul class="hidden md:flex gap-8 text-white font-medium">
+        <li><a href="#" class="hover:text-indigo-200">Home</a></li>
+        <li><a href="#form" class="hover:text-indigo-200">Add Task</a></li>
+        <li><a href="#tasks" class="hover:text-indigo-200">Tasks</a></li>
+      </ul>
+
+      <button id="menuBtn" class="md:hidden text-3xl text-white">☰</button>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-indigo-700 px-6 pb-5">
+      <ul class="flex flex-col gap-4 text-white">
+        <li><a href="#">Home</a></li>
+        <li><a href="#form">Add Task</a></li>
+        <li><a href="#tasks">Tasks</a></li>
+      </ul>
+    </div>
+  </nav>
+
