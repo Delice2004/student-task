@@ -187,6 +187,22 @@
       <p class="text-slate-400 text-sm">Built with HTML, Tailwind CSS & Vanilla JavaScript</p>
     </div>
   </footer>
+  <!-- JS -->
+  <script>
+
+    // DATE
+    today.textContent = "Today: " + new Date().toDateString();
+
+    // MOBILE MENU
+    menuBtn.onclick = () => mobileMenu.classList.toggle("hidden");
+
+    // ELEMENTS
+    const form = document.getElementById("taskForm"),
+          taskInput = document.getElementById("taskInput"),
+          dateInput = document.getElementById("dateInput"),
+          taskList = document.getElementById("taskList"),
+          error = document.getElementById("error"),
+          count = document.getElementById("count");
 
 
 
