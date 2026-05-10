@@ -204,6 +204,46 @@
           error = document.getElementById("error"),
           count = document.getElementById("count");
 
+          // STORAGE
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    renderTasks();
+
+    // SUBMIT
+    form.addEventListener("submit", e => {
+
+      e.preventDefault();
+
+      const name = taskInput.value.trim(),
+            date = dateInput.value;
+
+      if(!name || !date){
+        error.classList.remove("hidden");
+        taskInput.classList.add("border-red-500");
+        dateInput.classList.add("border-red-500");
+        return;
+      }
+
+      error.classList.add("hidden");
+      taskInput.classList.remove("border-red-500");
+      dateInput.classList.remove("border-red-500");
+
+      tasks.push({
+        id: Date.now(),
+        name,
+        date
+      });
+
+      saveTasks();
+      renderTasks();
+
+      alert("Task Added Successfully!");
+
+      taskInput.value = "";
+      dateInput.value = "";
+    });
+
+
 
 
 
