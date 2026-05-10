@@ -303,6 +303,31 @@
 
         taskList.appendChild(card);
       });
+// DELETE
+      document.querySelectorAll(".deleteBtn").forEach(btn => {
+
+        btn.onclick = () => {
+
+          if(confirm("Delete this task?")){
+
+            tasks = tasks.filter(task =>
+              task.id != btn.dataset.id
+            );
+
+            saveTasks();
+            renderTasks();
+          }
+        };
+      });
+
+      count.textContent = tasks.length;
+    }
+
+  </script>
+
+</body>
+</html>
+
 
 
 
